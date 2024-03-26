@@ -24,7 +24,7 @@ class Sorting:
         return arr
     
     @staticmethod
-    def insertion_sort(arr):
+    def insertion_sort(arr): 
         for i in range(1, len(arr)):
             key = arr[i]
             j = i - 1
@@ -78,35 +78,71 @@ class Sorting:
 
         Sorting.merge(arr, aux, left, mid, right)
 
+    @staticmethod
+    def quick_sort(arr):
+        Sorting.quicksort(arr, 0, len(arr) - 1)
     
+    @staticmethod
+    def quicksort(arr, low, high):
+        if low < high:
+
+            # Pivot
+            pivot = Sorting.partition(arr, low, high)
+
+            # Ordering the elements before and after the pivot
+            Sorting.quicksort(arr, low, pivot - 1)
+            Sorting.quicksort(arr, pivot + 1, high)
+
+    @staticmethod
+    def partition(arr, low, high):
+        pivot =  arr[high]
+        i = low - 1
+
+        for j in range(low, high):
+            if arr[j] <= pivot:
+                i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+
+        arr[i + 1 ], arr[high] = arr[high], arr[i + 1]
+        return i + 1
+
+  
     
-    
 
-    
+arr = [random.randint(0, 100) for _ in range(500)]
+
+arr2 = [12, 30, 32, 13, -1, -2, 5, 9, 56]
+
+def test_bubblesort(arr):
+    time1 = time.time()
+    Sorting.bubble_sort(arr)
+    time2 = time.time()
+    return time2 - time1
+
+def test_selectionsort(arr):
+    time1 = time.time()
+    Sorting.selection_sort(arr)
+    time2 = time.time()
+    return time2 - time1
+
+def test_mergesort(arr):
+    time1 = time.time()
+    Sorting.mergeSort(arr)
+    time2 = time.time()
+    return time2 - time1
+
+def test_quicksort(arr):
+    time1 = time.time()
+    Sorting.quick_sort(arr)
+    time2 = time.time()
+    return time2 - time1
 
 
+print("Time to execute Bubble Sort's algorithm was: ", test_bubblesort(arr))
+print("Time to execute Merge Sort's algorithm was: ", test_mergesort(arr))
+print("Time to execute Selection Sort's algorithm was: ", test_quicksort(arr))
+print("Time to execute Seleection Sort's algorithm was: ", test_selectionsort(arr))
 
-
-
-
-
-
-
-# arr = [random.randint(0, 100) for _ in range(1000)]
-
-# arr2 = [12, 30, 32, 13, -1, -2, 5, 9, 56]
-
-
-
-
-
-# def test_func(arr):
-#     time1 = time.time()
-#     Sorting.bubble_sort(arr)
-#     time2 = time.time()
-#     return time2 - time1
-
-# print("Time to execute Selection Sort's algorithm was: ", test_func(arr))
 
 
 
