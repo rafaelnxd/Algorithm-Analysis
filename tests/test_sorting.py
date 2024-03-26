@@ -1,20 +1,19 @@
 import os
 import sys
 import random
+import unittest
 from algorithms.sorting import Sorting
-import time
+
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../") 
     
-arr = [random.randint(0, 100) for _ in range(1000)]
+class TestSorting:
+    def __init__ (self):
+        self.unsorted_list = [random.randint(0, 100) for _ in range(10)]
+        self.sorted_list = sorted(self.unsorted_list)
 
-arr2 = [12, 30, 32, 13, -1, -2, 5, 9, 56]
-
-
-def test_func(arr):
-    time1 = time.time()
-    Sorting.selection_sort(arr)
-    time2 = time.time()
-    return time2 - time1
-
-print("Time to execute Selection Sort's algorithm was: ", test_func(arr))
+    
+    def test_bubble_sort(self):
+        arr1 = [3, 7, 33, 59, 71]
+        self.assertEqual(Sorting.bubble_sort(arr1.copy()), sorted(arr1))
+       
