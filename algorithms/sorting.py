@@ -38,6 +38,7 @@ class Sorting:
     def mergeSort(arr):
         aux = [0] * len(arr)
         Sorting.mergesort(arr, aux, 0, len(arr) - 1)
+        return arr
 
     @staticmethod
     def merge(arr, aux, left, mid, right):
@@ -107,58 +108,3 @@ class Sorting:
         return i + 1
 
   
-    
-
-arr = [random.randint(0, 100) for _ in range(500)]
-
-arr2 = [12, 30, 32, 13, -1, -2, 5, 9, 56]
-
-def test_bubblesort(arr):
-    time1 = time.time()
-    Sorting.bubble_sort(arr)
-    time2 = time.time()
-    return time2 - time1
-
-def test_selectionsort(arr):
-    time1 = time.time()
-    Sorting.selection_sort(arr)
-    time2 = time.time()
-    return time2 - time1
-
-def test_mergesort(arr):
-    time1 = time.time()
-    Sorting.mergeSort(arr)
-    time2 = time.time()
-    return time2 - time1
-
-def test_quicksort(arr):
-    time1 = time.time()
-    Sorting.quick_sort(arr)
-    time2 = time.time()
-    return time2 - time1
-
-
-print("Time to execute Bubble Sort's algorithm was: ", test_bubblesort(arr))
-print("Time to execute Merge Sort's algorithm was: ", test_mergesort(arr))
-print("Time to execute Selection Sort's algorithm was: ", test_quicksort(arr))
-print("Time to execute Seleection Sort's algorithm was: ", test_selectionsort(arr))
-
-
-
-
-# print("Original List", arr2)
-# Sorting.selection_sort(arr2)
-# print("Ordered List", arr2)
-
-# print("Bubble sorted array: ", Sorting.selection_sort(arr.copy()))
-
-        
-    
-
-
-# arr1 = [3, 2, 1, 5, 4]
-# sorted_arr1 = Sorting.bubble_sort(arr1)
-# print(arr1)
-    
-# random_numbers = [random.randint(1, 1000) for _ in range(1000)]
-
