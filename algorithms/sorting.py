@@ -3,6 +3,11 @@ import time
 
 class Sorting:
 
+
+    ## Algorithms Methods # #
+
+        # Bubble Sort #
+
     @staticmethod
     def bubble_sort(arr):
         n = len(arr)
@@ -11,6 +16,8 @@ class Sorting:
                 if arr[j] > arr[j + 1]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
         return arr
+
+        # Selection Sort #
     
     @staticmethod
     def selection_sort(arr):
@@ -23,6 +30,8 @@ class Sorting:
             arr[i], arr[min_index] = arr[min_index], arr[i]
         return arr
     
+        # Insertion Sort #
+    
     @staticmethod
     def insertion_sort(arr): 
         for i in range(1, len(arr)):
@@ -33,6 +42,8 @@ class Sorting:
                 j -= 1
             arr[j + 1] = key
         return arr
+    
+        # Merge Sort #
     
     @staticmethod
     def mergeSort(arr):
@@ -78,6 +89,8 @@ class Sorting:
 
 
         Sorting.merge(arr, aux, left, mid, right)
+
+        # Quick Sort #
 
     @staticmethod
     def quick_sort(arr):

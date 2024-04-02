@@ -1,4 +1,6 @@
 class Search:
+    
+        # Binary Search #
     @staticmethod
     def binary_search(arr, target):
         left = 0
@@ -16,6 +18,7 @@ class Search:
 
         return -1
 
+        # Binary Search #
     @staticmethod
     def sequential_search(arr, target):
         for i in range(len(arr)):

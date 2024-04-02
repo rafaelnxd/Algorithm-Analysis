@@ -30,7 +30,7 @@ def plot_big_o():
     plt.savefig('big_o_notation.png')
     plt.show()
 
-# Função para medir o tempo de execução de um algoritmo
+# Function to measure the execution time of an algorithm
 def measure_execution_time(algorithm, lst, target=None):
  
     start_time = time.time()  
@@ -41,15 +41,15 @@ def measure_execution_time(algorithm, lst, target=None):
     end_time = time.time() 
     return end_time - start_time  
 
-# Função para gerar dados de teste aleatórios
+# Function to generate random test data
 def generate_test_data(size):
 
-    return [random.randint(1, 1000) for _ in range(size)]  # Gera uma lista de inteiros aleatórios com o tamanho especificado
+    return [random.randint(1, 1000) for _ in range(size)]  # Generate a list of random integers with the specified size
 
-# Função para analisar o desempenho dos algoritmos
+# Function to analyze the performance of algorithms
 def analyze_performance(algorithms, sizes, type):
 
-    results = {}  # Dicionário para armazenar os resultados de desempenho
+    results = {}  # Dictionary to store performance results
 
     for name, algorithm in algorithms.items():  
         execution_times = []  
@@ -65,7 +65,7 @@ def analyze_performance(algorithms, sizes, type):
 
     return results  
 
-# Função para gerar gráficos de desempenho
+# Function to generate performance plots
 def generate_plot(results, sizes, type):
 
     plt.figure(figsize=(10, 6))  
@@ -78,7 +78,8 @@ def generate_plot(results, sizes, type):
     plt.grid(True)  
     plt.savefig(f'report_plot_{type.lower()}.png')  
     plt.show()  
-# Função principal
+
+# Main function
 def main():
 
     plot_big_o()
@@ -96,13 +97,12 @@ def main():
         'Sequential Search': Search.sequential_search
     }
 
-    test_sizes = [100, 1000, 10000]  # Tamanhos de lista de teste
+    test_sizes = [100, 1000, 10000]  # Test list sizes
 
-    sorting_results = analyze_performance(sorting_algorithms, test_sizes, 'Sorting')  # Analisa o desempenho dos algoritmos de ordenação
-    generate_plot(sorting_results, test_sizes, 'Sorting')  # Gera um gráfico para os algoritmos de ordenação
+    sorting_results = analyze_performance(sorting_algorithms, test_sizes, 'Sorting')  # Analyze performance of sorting algorithms
+    generate_plot(sorting_results, test_sizes, 'Sorting')  # Generate plot for sorting algorithms
 
-    search_results = analyze_performance(search_algorithms, test_sizes, 'Search')  # Analisa o desempenho dos algoritmos de busca
-    generate_plot(search_results, test_sizes, 'Search')  # Gera um gráfico para os algoritmos de busca
-
+    search_results = analyze_performance(search_algorithms, test_sizes, 'Search')  # Analyze performance of search algorithms
+    generate_plot(search_results, test_sizes, 'Search')  # Generate plot for search algorithms
 if __name__ == "__main__":
     main()
