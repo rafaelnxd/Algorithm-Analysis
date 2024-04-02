@@ -4,7 +4,7 @@ import os
 # Adiciona o diretório 'algorithms' ao sys.path para que o Python possa encontrar o módulo 'search.py'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../") 
 
-# Agora podemos importar a classe Search corretamente
+
 from algorithms.search import Search
 
 import random

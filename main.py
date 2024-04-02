@@ -52,6 +52,8 @@ def generate_plot(results, sizes, type):
     plt.show()
 
 
+
+
 def main():
     sorting_algorithms = {
         'Bubble Sort': Sorting.bubble_sort,
@@ -66,7 +68,7 @@ def main():
         'Sequential Search': Search.sequential_search
     }
 
-    test_sizes = [100, 1000, 10000]  # Example test list sizes
+    test_sizes = [100, 1000, 10000, 100000]  # Example test list sizes
 
     sorting_results = analyze_performance(sorting_algorithms, test_sizes, 'Sorting')
     generate_plot(sorting_results, test_sizes, 'Sorting')
