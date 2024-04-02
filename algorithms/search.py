@@ -1,36 +1,24 @@
-# Exemplo de implementação dos algoritmos de busca sequencial e binária.
+class Search:
+    @staticmethod
+    def binary_search(arr, target):
+        left = 0
+        right = len(arr) - 1
 
-class Busca:
+        while left <= right:
+            mid = (left + right) // 2
 
-    def sequan(lista, alvo):
-        """
-        Implementação do algoritmo de busca sequencial.
+            if arr[mid] == target:
+                return mid
+            elif arr[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
 
-        :param lista: Lista onde será realizada a busca.
-        :param alvo: Elemento a ser buscado.
-        :return: Índice do elemento alvo se encontrado, caso contrário -1.
-        """
-        for indice, elemento in enumerate(lista):
-            if elemento == alvo:
-                return indice
         return -1
 
-    def busca_binaria(lista, alvo):
-        """
-        Implementação do algoritmo de busca binária.
-        Assume que a lista está ordenada.
-
-        :param lista: Lista ordenada onde será realizada a busca.
-        :param alvo: Elemento a ser buscado.
-        :return: Índice do elemento alvo se encontrado, caso contrário -1.
-        """
-        esquerda, direita = 0, len(lista) - 1
-        while esquerda <= direita:
-            meio = (esquerda + direita) // 2
-            if lista[meio] == alvo:
-                return meio
-            elif lista[meio] < alvo:
-                esquerda = meio + 1
-            else:
-                direita = meio - 1
+    @staticmethod
+    def sequential_search(arr, target):
+        for i in range(len(arr)):
+            if arr[i] == target:
+                return i
         return -1

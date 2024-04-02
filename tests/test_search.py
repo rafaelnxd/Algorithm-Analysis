@@ -1,55 +1,51 @@
-# import sys
-# import os
-# from algorithms import algorithms
+import sys
+import os
 
-# # Adiciona o diretório pai ao sys.path para que seja possível importar o módulo que será testado
-# # (nesse caso, o módulo busca.py)
-# # referencia para o código abaixo: https://diveintopython.org/learn/file-handling/directories 
-# # O `sys.path` é uma lista de diretórios onde o Python procura por módulos
-# # O `os.path.abspath` retorna o caminho absoluto do arquivo que está sendo executado
-# # O `os.path.dirname` retorna o diretório onde o arquivo que está sendo executado está localizado
-# sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../") # resolve o problema de import do módulo busca.py
+# Adiciona o diretório 'algorithms' ao sys.path para que o Python possa encontrar o módulo 'search.py'
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../") 
+
+# Agora podemos importar a classe Search corretamente
+from algorithms.search import Search
+
+import random
+
+class TestSearch:
+    def __init__(self):
+        self.sorted_list = [3, 5, 7, 9, 27, 34, 63, 88, 89]
+
+    def test_sequential_search(self):
+        values = [random.randint(1, 100) for _ in range(5)]
+    
+        for v in values:
+            result = Search.sequential_search(self.sorted_list, v)
+            if v in self.sorted_list:
+                expected = self.sorted_list.index(v)
+                if result == expected:
+                    print(f"Sequential search test for value {v} passed.")
+                else:
+                    print(f"Sequential search test for value {v} failed. Expected index: {expected}, Actual index: {result}")
+            else:
+                if result == -1:
+                    print(f"Sequential search test for value {v} passed.")
+                else:
+                    print(f"Sequential search test for value {v} failed. Expected index: -1, Actual index: {result}")
 
 
-
-# import random
-
-# class TestBusca:
-#     def __init__(self):
-#         self.lista_ordenada = [3, 5, 7, 9, 27, 34, 63, 88, 89]
-
-#     # Forma simples de fazer um teste de unidade para a busca sequencial    
-#     def test_busca_sequencial(self):
-#         valor = [random.randint(1, 100) for _ in range(5)]
-        
-#         for v in valor:
-#             try:
-#                 if Busca.busca_sequencial(self.lista_ordenada, v) == self.lista_ordenada.index(v):
-#                     print(f"Teste de busca sequencial ({v}) passou.")
-#             except:
-#                 print(f"Teste de busca sequencial ({v}) falhou.")              
+    def test_binary_search(self):
+        try:
+            assert Search.binary_search(self.sorted_list, 34) == 5
+            assert Search.binary_search(self.sorted_list, 88) == 7
+            assert Search.binary_search(self.sorted_list, 50) == -1
+            print("Binary search test passed.")
+        except AssertionError:
+            print("Binary search test failed.")
 
 
-#     # O `assert` é uma forma de testar se a condição é verdadeira ou falsa e caso seja falsa,
-#     # o programa para de rodar e mostra o erro que ocorreu na linha do assert que falhou 
-#     # https://pt.stackoverflow.com/questions/85323/pra-que-serve-o-assert-no-python
-#     def test_busca_binaria(self):
-#         try:
-#             assert Busca.busca_binaria(self.lista_ordenada, 34) == 5
-#             assert Busca.busca_binaria(self.lista_ordenada, 88) == 3
-#             assert Busca.busca_binaria(self.lista_ordenada, 50) == -1
-#             print("Teste de busca binária passou.")
-#         except AssertionError:
-#             print("Teste de busca binária falhou.")
-#             return
- 
+    def run_tests(self):
+        self.test_sequential_search()
+        self.test_binary_search()
+        print("End of tests.")
 
-#     # O método `run_tests` chama todos os testes que foram implementados
-#     def run_tests(self):
-#         self.test_busca_sequencial()
-#         self.test_busca_binaria()
-#         print("Fim dos testes.")
-
-# if __name__ == '__main__':
-#     testes = TestBusca()
-#     testes.run_tests()
+if __name__ == '__main__':
+    test_search = TestSearch()
+    test_search.run_tests()
