@@ -14,6 +14,52 @@ The project is organized into the following directories and files:
   - `test_search.py`: Script to test the searching algorithms.
 - `main.py`: Main script to perform performance analysis of sorting and searching algorithms.
 
+## Configuration
+
+1. Clone the repository to your local environment:
+
+    ```bash
+    git clone https://github.com/rafaelnxd/Algorithm-Analysis
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd Algorithm-Analysis
+    ```
+
+3. Create a virtual environment. Use one of the following commands depending on your operating system:
+   - For Windows:
+
+     ```bash
+     python -m venv venv
+     ```
+
+   - For Unix or MacOS:
+
+     ```bash
+     python3 -m venv venv
+     ```
+
+4. Activate the virtual environment. Use one of the following commands:
+   - For Windows:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+   - For Unix or MacOS:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+5. Install project dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 ## Usage
 
 ### Sorting Algorithms
@@ -46,4 +92,7 @@ To execute the performance analysis, run the `main.py` script.
 ## Requirements
 
 - Python 3.x
-- Matplotlib library for generating graphs (install using `pip install matplotlib`)
+- Matplotlib
+- Numpy
+
+
